@@ -1,0 +1,192 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 152 61% 58%; /* #55D292 */
+    --primary-foreground: 210 40% 98%;
+    --secondary: 152 61% 92%;
+    --secondary-foreground: 152 61% 30%;
+    --muted: 152 61% 96%;
+    --muted-foreground: 152 30% 40%;
+    --accent: 152 61% 58%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 152 61% 85%;
+    --input: 152 61% 85%;
+    --ring: 152 61% 58%;
+    --radius: 2rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 152 61% 58%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 152 61% 30%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 152 61% 20%;
+    --muted-foreground: 152 61% 70%;
+    --accent: 152 61% 58%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 152 61% 30%;
+    --input: 152 61% 30%;
+    --ring: 152 61% 58%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    font-family: "Comic Sans MS", "Chalkboard SE", "Comic Neue", sans-serif;
+  }
+}
+
+/* Cartoon-style animations */
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes wiggle {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(5deg);
+  }
+  75% {
+    transform: rotate(-5deg);
+  }
+}
+
+@keyframes pulse-shadow {
+  0%,
+  100% {
+    box-shadow: 0 10px 25px -5px rgba(85, 210, 146, 0.4);
+  }
+  50% {
+    box-shadow: 0 20px 35px -5px rgba(85, 210, 146, 0.6);
+  }
+}
+
+.cartoon-bounce {
+  animation: bounce 2s infinite;
+}
+
+.cartoon-wiggle {
+  animation: wiggle 2s infinite;
+}
+
+.cartoon-pulse-shadow {
+  animation: pulse-shadow 3s infinite;
+}
+
+/* Comic-style speech bubble */
+.speech-bubble {
+  position: relative;
+  background: #55d292;
+  border-radius: 1.5rem;
+  padding: 1rem;
+  color: white;
+}
+
+.speech-bubble::after {
+  content: "";
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 10px solid transparent;
+  border-top-color: #55d292;
+}
+
+/* Wavy border */
+.wavy-border {
+  position: relative;
+}
+
+.wavy-border::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  right: -8px;
+  bottom: -8px;
+  border: 8px solid #55d292;
+  border-radius: 2.5rem;
+  z-index: -1;
+  animation: wiggle 6s infinite;
+}
+
+/* Comic-style divider */
+.comic-divider {
+  height: 20px;
+  background-image: repeating-linear-gradient(-45deg, #55d292, #55d292 15px, transparent 15px, transparent 30px);
+  margin: 2rem 0;
+  border-radius: 10px;
+}
+
+/* Doodle underline */
+.doodle-underline {
+  position: relative;
+  display: inline-block;
+}
+
+.doodle-underline::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 10px;
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='10' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,5 C20,15 35,-5 55,5 C75,15 90,-5 100,5' stroke='%2355D292' fill='none' stroke-width='3'/%3E%3C/svg%3E");
+  background-size: 100px 10px;
+  background-repeat: repeat-x;
+}
+
+/* Comic-style POW effect */
+.pow-effect {
+  position: relative;
+  display: inline-block;
+}
+
+.pow-effect::before {
+  content: "POW!";
+  position: absolute;
+  top: -20px;
+  right: -30px;
+  background: #ffd700;
+  color: #ff4500;
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 50%;
+  transform: rotate(15deg);
+  font-size: 0.8rem;
+  z-index: 10;
+  box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.2);
+}
